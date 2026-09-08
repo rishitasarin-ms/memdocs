@@ -1,7 +1,7 @@
 ---
 title: Set up just-in-time registration
 description: Set up JIT registration in Intune for devices enrolling via a supported Apple device enrollment or user enrollment method.
-ms.date: 07/22/2024
+ms.date: 09/08/2026
 ms.topic: install-set-up-deploy
 ms.reviewer: rishitasarin
 ---
@@ -13,7 +13,10 @@ Set up *just-in-time (JIT) registration* in Microsoft Intune to enable device us
 
 JIT compliance remediation, the feature that initiates compliance checks, is enabled automatically on devices utilizing JIT registration and targeted with compliance policies. Compliance remediation happens in an embedded flow within the app users are registering. They can see their compliance status and take actionable steps to remediate the issues as they complete JIT registration. If their device is noncompliant, for example, the Company Portal website opens in the app and shows them the reason for noncompliance.
 
-This article describes how to enable JIT registration by creating an SSO app extension policy in the Microsoft Intune admin center.
+> [!NOTE]
+> Beginning with the Microsoft Intune 2611 service release, Intune automatically adds the required JIT registration configuration for eligible iOS/iPadOS tenants. This automatic update applies when Microsoft Authenticator is already deployed as a required app and an existing SSO app extension policy doesn't already include the required JIT registration configuration. No administrator action is required for eligible tenants. If your tenant doesn't meet these requirements, or if you want to enable JIT registration before the 2611 service release, use the manual steps in this article.
+
+This article describes the Intune 2611 automatic behavior and how to manually configure JIT registration with an SSO app extension policy in the Microsoft Intune admin center when needed.
 
 ## Prerequisites
 
@@ -66,7 +69,9 @@ This article describes how to enable JIT registration by creating an SSO app ext
 
 * Don't add the bundle ID for the Microsoft Authenticator app to your SSO extension policy. Since it's a Microsoft app, the SSO extension will automatically work with it.
 
-## Set up JIT registration
+## Manually set up JIT registration
+Use the following steps if your tenant isn't covered by the Microsoft Intune 2611 automatic update, or if you want to enable JIT registration before that service release.
+
 Create a single sign-on app extension policy that uses the Apple SSO extension to enable just-in-time (JIT) registration.
 1. Sign in to the [Microsoft Intune admin center].
 2. [Create an iOS/iPadOS device configuration policy](../../device-configuration/templates/configure-device-features-apple.md) under **Device features** > **Category** > [**Single sign-on app extension**](../../device-configuration/templates/configure-device-features-apple.md#single-sign-on-sso).
@@ -89,7 +94,7 @@ Create a single sign-on app extension policy that uses the Apple SSO extension t
 8. For **Assignments**, assign the profile to all users, or select specific groups.
 9. Select **Next**.
 10. On the **Review + create** page, review your choices, and then select **Create** to finish creating the profile.
-11. Go to **Apps** > **All Apps** and assign Microsoft Authenticator to groups as a required app. For more information, see [Add apps to Microsoft Intune](../../app-management/deployment/index.md) and [Assign apps to groups](../../app-management/deployment/assign-groups.md).
+11. Go to **Apps** > **All apps** and assign Microsoft Authenticator to groups as a required app. For more information, see [Add apps to Microsoft Intune](../../app-management/deployment/index.md) and [Assign apps to groups](../../app-management/deployment/assign-groups.md). Microsoft Authenticator must already be deployed as a required app for tenants that are eligible for the Microsoft Intune 2611 automatic JIT registration update.
 
 ## Next steps
 Create an enrollment policy for enrolling devices. The enrollment policy triggers the device user's enrollment experience, and enables them to initiate enrollment. For information about how to create a profile for supported enrollment types, see the following resources:

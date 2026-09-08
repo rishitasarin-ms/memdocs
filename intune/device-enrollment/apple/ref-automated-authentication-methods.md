@@ -1,7 +1,7 @@
 ---
 title: Authentication methods for Apple automated device enrollment | Microsoft Intune
 description: Describes the Intune-supported authentication methods you can use with automated device enrollment.
-ms.date: 06/09/2025
+ms.date: 09/08/2026
 ms.topic: how-to
 ---
 
@@ -89,7 +89,9 @@ This option is the same as Setup Assistant with modern authentication, except th
 
 Once the device user reaches the home screen, they can sign in to any work or school app that's configured with the SSO extension to complete Microsoft Entra registration and compliance checks. SSO signs the user into all apps that are a part of your SSO extension policy. At that point, they can also manually sign in to any app that isn’t configured to use the SSO extension.
 
-To set up JIT Registration with automated device enrollment:
+Beginning with the Microsoft Intune 2611 service release, eligible tenants automatically receive the required JIT registration configuration in their existing SSO app extension policy. This automatic update applies when Microsoft Authenticator is already deployed as a required app and the existing policy doesn't already include the required JIT registration configuration.
+
+If your tenant isn't eligible for the automatic update, or if you want to enable JIT registration before the 2611 service release, complete the following steps:
 
 1. Create a device configuration policy and configure the settings under the **Single sign-on app extension** category. For steps, see [Set up just in time registration](setup-just-in-time-registration.md).
 2. [Create an Apple enrollment policy](setup-automated-ios.md#create-an-apple-enrollment-policy) and select **Setup Assistant with modern authentication** as the authentication method. An active automated device enrollment token from Apple Business or Apple School Manager must be present in Intune to complete this step.

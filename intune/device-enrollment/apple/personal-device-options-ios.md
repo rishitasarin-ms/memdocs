@@ -1,7 +1,7 @@
 ---
 title: Overview of Apple device enrollment in Microsoft Intune
 description: Utilize Apple device enrollment to enroll and manage user-owned iOS/iPadOS devices in Microsoft Intune.
-ms.date: 12/08/2025
+ms.date: 09/08/2026
 ms.topic: concept-article
 ms.reviewer: rishitasarin
 ---
@@ -17,7 +17,7 @@ Device enrollment supports an app based enrollment experience and web based enro
 
 Create an enrollment policy in the admin center to select and configure enrollment types. Go to **Devices** > **By platform** > **iOS/iPadOS** > **Device onboarding** > **Enrollment** and select **Enrollment types**.  
 
-Web-based enrollment utilizes just in time (JIT) registration with the Apple single sign-on (SSO) extension to facilitate Microsoft Entra registration within the employee's work apps and reduce the number of times they have to authenticate. We recommend web enrollment using JIT registration with SSO as the most secure enrollment method for device attestation. We also recommend enabling web-based enrollment for devices because it doesn't require employees and students to install the Company Portal app. Post-enrollment functionality remains the same as with app-based enrollment. To enable JIT registration in enrollments, [create a device configuration profile with an SSO app extension policy](setup-web-based-ios.md#step-1-set-up-just-in-time-registration).   
+Web-based enrollment utilizes just in time (JIT) registration with the Apple single sign-on (SSO) extension to facilitate Microsoft Entra registration within the employee's work apps and reduce the number of times they have to authenticate. We recommend web enrollment using JIT registration with SSO as the most secure enrollment method for device attestation. We also recommend enabling web-based enrollment for devices because it doesn't require employees and students to install the Company Portal app. Post-enrollment functionality remains the same as with app-based enrollment. Beginning with the Microsoft Intune 2611 service release, eligible tenants automatically receive the required JIT registration configuration. Other tenants can still [configure JIT registration manually](setup-web-based-ios.md#step-1-set-up-just-in-time-registration-if-needed).
 
 The following table provides details about app and web-based enrollment.
 
@@ -86,7 +86,5 @@ Intune enrollment with Apple device enrollment has the following known issues an
 Choose the user enrollment method you want to use to enroll devices, and then create an enrollment policy. For more information about how to enable web-based enrollment in the Microsoft Intune admin center, see [Set up web based enrollment](setup-web-based-ios.md).
 
 For more details about Apple device enrollment features and functionality, see [Device Enrollment and MDM]( https://support.apple.com/guide/deployment/device-enrollment-and-mdm-depd1c27dfe6/web) on the Apple support website.
-
-
 
 

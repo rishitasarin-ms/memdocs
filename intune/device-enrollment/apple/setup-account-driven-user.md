@@ -1,7 +1,7 @@
 ---
 title: Set up account driven Apple User Enrollment
 description: Set up account driven Apple User Enrollment for personal devices enrolling in Microsoft Intune.
-ms.date: 06/12/2025
+ms.date: 09/08/2026
 ms.topic: how-to
 ms.reviewer: rishitasarin
 ---
@@ -108,9 +108,11 @@ Deploy the web app version of the Intune Company Portal website so that users ha
 ### Enable federated authentication
 Apple User Enrollment requires you to create and provide managed Apple IDs to enrolling users. If you enable federated authentication, which consists of linking Apple Business with Microsoft Entra ID, you don't have to create and provide unique Apple IDs to each user. Instead, a device user can sign in to their apps with the same credentials they use for their work account. For more information, see [Intro to federated authentication with Apple Business](https://support.apple.com/guide/apple-business-manager/intro-to-federated-authentication-axmb19317543/1/web/1) in the Apple Business User Guide.
 
-## Step 1: Set up just in time registration and assign Microsoft Authenticator
+## Step 1: Set up just in time registration and assign Microsoft Authenticator, if needed
 
-Configure just-in-time registration and assign Microsoft Authenticator as a required app. For steps, see [Set up JIT registration in Intune](setup-just-in-time-registration.md). Return to this article when you're done so you can continue to the next step.
+Beginning with the Microsoft Intune 2611 service release, eligible tenants automatically receive the required JIT registration configuration in their existing SSO app extension policy. This automatic update applies when Microsoft Authenticator is already deployed as a required app and the existing policy doesn't already include the required JIT registration configuration.
+
+If your tenant isn't eligible for the automatic update, or if you want to enable JIT registration before the 2611 service release, configure JIT registration and assign Microsoft Authenticator as a required app. For steps, see [Set up JIT registration in Intune](setup-just-in-time-registration.md). Return to this article when you're done so you can continue to the next step.
 
 ## Step 2: Create enrollment profile
 Create an enrollment profile for devices enrolling via account driven user enrollment. The enrollment profile triggers the device user's enrollment experience, and enables them to initiate enrollment from the Settings app.
